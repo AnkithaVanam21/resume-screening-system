@@ -1,6 +1,3 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-
 skills_db = [
     "python",
     "java",
@@ -14,6 +11,7 @@ skills_db = [
     "javascript"
 ]
 
+
 def extract_skills(text):
     found_skills = []
 
@@ -23,17 +21,20 @@ def extract_skills(text):
 
     return found_skills
 
+
 def calculate_score(jd_text, resume_text):
-    documents = [jd_text, resume_text]
 
-    tfidf = TfidfVectorizer().fit_transform(documents)
+    jd_words = set(jd_text.lower().split())
+    resume_words = set(resume_text.lower().split())
 
-    similarity = cosine_similarity(
-        tfidf[0:1],
-        tfidf[1:2]
-    )[0][0]
+    common_words = jd_words.intersection(resume_words)
 
-    similarity_score = round(similarity * 100, 2)
+    similarity_score = 0
+
+    if len(jd_words) > 0:
+        similarity_score = (
+            len(common_words) / len(jd_words)
+        ) * 100
 
     jd_skills = extract_skills(jd_text)
     resume_skills = extract_skills(resume_text)
