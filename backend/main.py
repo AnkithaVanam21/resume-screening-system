@@ -9,7 +9,11 @@ from scorer import calculate_score
 
 import shutil
 
+import os
+
 Base.metadata.create_all(bind=engine)
+
+os.makedirs("uploads", exist_ok=True)
 
 app = FastAPI()
 
