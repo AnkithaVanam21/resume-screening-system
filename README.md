@@ -209,16 +209,19 @@ http://localhost:3000
 ---
 
 
-## ScreenShots
+## Screenshots
 
-1. Empty DashBoard
+### Empty Dashboard
 
-![alt text](image.png)
+![Empty Dashboard](screenshots/Empty_Dashboard.png)
 
-2. Results DashBoard
+### Results Dashboard
 
-![alt text](image-1.png)
-## Future Enhancements
+![Results Dashboard](screenshots/Results_Dashboard.png)
+
+
+
+
 
 - Authentication & Login
 
